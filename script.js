@@ -1,8 +1,19 @@
+let gridSize = 16;
 const gridContainer = document.querySelector(".grid-container");
-const tile = Object.assign(document.createElement("div"), {
-    className: "tile-1",
-    textContent: "tile 1",
-});
-console.log(tile);
-tile.style.backgroundColor = "white";
-gridContainer.appendChild(tile);
+createGrid(gridSize, gridContainer);
+
+function createGrid(gridSize, gridContainer) {
+    let gridArea = gridSize * gridSize;
+    let tile;
+
+    for (let i = 0; i < gridArea; i++) {
+        tile = Object.assign(document.createElement("div"), {
+            className: `tile-${i + 1}`,
+            textContent: `tile ${i + 1}`,
+        });
+        tile.style.backgroundColor = "white";
+        tile.style.borderStyle = "solid";
+        tile.style.borderColor = "red";
+        gridContainer.appendChild(tile);
+    }
+}
