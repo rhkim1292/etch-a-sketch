@@ -11,12 +11,21 @@ function createGrid(gridSize, gridContainer) {
 
     for (let i = 0; i < gridArea; i++) {
         tile = Object.assign(document.createElement("div"), {
-            className: `tile-${i + 1}`,
+            id: `tile-${i + 1}`,
+            className: "tile",
         });
         tile.style.backgroundColor = "white";
-        tile.style.borderStyle = "none";
-        tile.style.borderColor = "red";
         tile.style.flex = `1 1 ${tileToContainerWidthRatio}%`;
         gridContainer.appendChild(tile);
     }
 }
+
+gridContainer.addEventListener("mouseover", (e) => {
+    let isTile = e.target.className === "tile";
+
+    if (!isTile) {
+        return;
+    }
+
+    e.target.style.backgroundColor = "black";
+});
