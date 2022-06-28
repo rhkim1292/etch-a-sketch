@@ -17,4 +17,6 @@ body {
     flex-wrap: wrap;
     flex: 1 1 auto;
     padding: 20px;
+    max-width: calc(100vh - 40px);
+    max-height: calc(100vw - 40px);
 }
